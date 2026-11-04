@@ -77,6 +77,8 @@ p { margin: 0; }
 /* Hero */
 .hero { padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 7vw, 5rem); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 4vw, 3.5rem); align-items: center; }
+.hero-logo { padding-bottom: clamp(2rem, 4.5vw, 3.25rem); }
+.hero-logo img { width: min(100%, 44rem); height: auto; }
 .hero-text { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
 .hero-text .ramp { width: 7rem; }
 .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; padding-top: 0.5rem; }
@@ -222,9 +224,11 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 
 <main id="top">
   <section class="hero">
+    <div class="wrap hero-logo">
+      <img src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177">
+    </div>
     <div class="wrap hero-grid">
       <div class="hero-text">
-        <span class="eyebrow">Environmental Modeling &amp; Mechanics Analysis</span>
         <h1>See how a building fails, and who gets hurt, before the earthquake comes.</h1>
         <div class="ramp" aria-hidden="true"></div>
         <p class="lead">EMMA cuts a building into thousands of pieces joined by springs, shakes it, and follows every piece from the first crack to the rubble on the ground, with the people inside.</p>
