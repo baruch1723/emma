@@ -223,11 +223,21 @@ tbody th small { display: block; font-family: var(--body); color: var(--faint); 
 .qr-text button { width: fit-content; cursor: pointer; border: 0; font: inherit; }
 @media (max-width: 760px) { .qr-inner { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } .qr-text { align-items: center; } }
 
+/* Insert Technologies: its navy logo sits on a white panel */
+.maker { display: inline-flex; align-items: center; background: #fff; border-radius: 6px; padding: 4px 8px; line-height: 0; }
+.maker img { height: 38px; width: auto; }
+@media (max-width: 480px) { .maker img { height: 30px; } }
+.top .right { display: flex; align-items: center; gap: 1.5rem; }
+.made-by { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.made-by .maker { padding: 8px 14px; border-radius: 8px; }
+.made-by .maker img { height: 56px; }
+.made-by p { color: var(--muted); font-size: 0.9375rem; max-width: 22rem; }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; }
-footer .brand { display: flex; flex-direction: column; gap: 0.9rem; }
-footer .brand img.lockup { height: 26px; width: auto; }
+footer .brand { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+footer .brand img.lockup { height: 34px; width: auto; }
 footer .brand img.powered { height: 13px; width: auto; }
 footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 </style>
@@ -255,12 +265,15 @@ body { margin: 0; }
 <header class="top">
   <div class="wrap">
     <a href="#top" aria-label="EMMA, back to top"><img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177"></a>
-    <nav aria-label="Sections">
-      <a href="#events">Other events</a>
-      <a href="#how">How it works</a>
-      <a href="#pumpunya">Peru case study</a>
-      <a href="#checks">Lab checks</a>
-    </nav>
+    <div class="right">
+      <nav aria-label="Sections">
+        <a href="#events">Other events</a>
+        <a href="#how">How it works</a>
+        <a href="#pumpunya">Peru case study</a>
+        <a href="#checks">Lab checks</a>
+      </nav>
+      <a class="maker" href="#made-by" aria-label="Insert Technologies"><img src="assets/insert-tech-logo.png" alt="Insert Technologies" width="216" height="139"></a>
+    </div>
   </div>
 </header>
 
@@ -474,7 +487,10 @@ body { margin: 0; }
   <div class="wrap">
     <div class="brand">
       <img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177" loading="lazy">
-      <img class="powered" src="assets/powered_by_insert_tech.png" alt="Powered by Insert Tech" width="440" height="29" loading="lazy">
+      <div class="made-by" id="made-by">
+        <span class="maker"><img src="assets/insert-tech-logo.png" alt="Insert Technologies" width="216" height="139" loading="lazy"></span>
+        <p>EMMA is developed by <b style="color:var(--fg)">Insert Technologies</b>.</p>
+      </div>
     </div>
     <p>Photos of Pumpunya: CISMID-UNI, <a href="https://www.cismid.uni.edu.pe/wp-content/uploads/2026/08/Informe_SismoChupaca_20260718_v2.pdf">Informe Sismo Chupaca, 18 July 2026</a>. Earthquake figures: IGP and CISMID-UNI. All simulation pictures are from EMMA runs.</p>
   </div>
