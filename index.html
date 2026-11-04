@@ -200,6 +200,20 @@ tbody th small { display: block; font-family: var(--body); color: var(--faint); 
 @media (max-width: 880px) { .watch { grid-template-columns: minmax(0, 1fr); } }
 .workflow { margin-top: 2.75rem; }
 
+/* QR start screen: shown when the page is opened with #qr, for the projector */
+.qr-start { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; align-items: center; justify-content: center;
+  padding: max(24px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); overflow-y: auto; }
+.qr-inner { display: grid; grid-template-columns: auto minmax(0, 26rem); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.qr-code { background: #fff; padding: 18px; border-radius: 14px; width: min(78vw, 56vh, 440px); aspect-ratio: 1 / 1; }
+.qr-code svg { display: block; width: 100%; height: 100%; }
+.qr-text { display: flex; flex-direction: column; gap: 1.25rem; min-width: 0; }
+.qr-text img { width: 100%; max-width: 26rem; height: auto; }
+.qr-text .ramp { width: 7rem; }
+.qr-text p { color: var(--muted); font-size: var(--s1); }
+.qr-text .url { font-family: var(--mono); font-size: 0.875rem; color: var(--fg); word-break: break-all; }
+.qr-text button { width: fit-content; cursor: pointer; border: 0; font: inherit; }
+@media (max-width: 760px) { .qr-inner { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } .qr-text { align-items: center; } }
+
 /* Footer */
 footer { border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; }
@@ -208,6 +222,19 @@ footer .brand img.lockup { height: 26px; width: auto; }
 footer .brand img.powered { height: 13px; width: auto; }
 footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 </style>
+
+<div class="qr-start" id="qr-start" hidden role="dialog" aria-modal="true" aria-label="Scan to open this page on your phone">
+  <div class="qr-inner">
+    <div class="qr-code" id="qr-code" aria-hidden="true"></div>
+    <div class="qr-text">
+      <img src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177">
+      <div class="ramp" aria-hidden="true"></div>
+      <p>Scan with your phone camera to open this page.</p>
+      <span class="url" id="qr-url"></span>
+      <button class="btn primary" id="qr-close" type="button">Continue to the page</button>
+    </div>
+  </div>
+</div>
 
 <header class="top">
   <div class="wrap">
@@ -462,7 +489,28 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
+(function () {
+  // The page's public link. The QR screen shows only when the page is opened with #qr.
+  var PAGE_URL = 'https://claude.ai/artifact/Rj2ZCy9JSF82YAn7zs5NVT';
+  var screen = document.getElementById('qr-start');
+  if (!screen || location.hash !== '#qr') return;
+  document.getElementById('qr-url').textContent = PAGE_URL.replace('https://', '');
+  try {
+    var qr = qrcode(0, 'M'); qr.addData(PAGE_URL); qr.make();
+    document.getElementById('qr-code').innerHTML = qr.createSvgTag({ cellSize: 8, margin: 0, scalable: true });
+  } catch (e) { document.getElementById('qr-code').textContent = PAGE_URL; }
+  screen.hidden = false;
+  document.documentElement.style.overflow = 'hidden';
+  function close() {
+    screen.hidden = true; document.documentElement.style.overflow = '';
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  }
+  document.getElementById('qr-close').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !screen.hidden) close(); });
+  document.getElementById('qr-close').focus();
+})();
 (function () {
   var box = document.getElementById('compare');
   var range = document.getElementById('compare-range');
