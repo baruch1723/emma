@@ -483,8 +483,9 @@ body { margin: 0; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
 (function () {
-  // The page's public link. The QR screen shows only when the page is opened with #qr.
-  var PAGE_URL = 'https://emmadynamics.com/';
+  // The QR code opens this page at the address it was opened from (emmadynamics.com or the
+  // github.io address), without the #qr. The QR screen shows only when the page is opened with #qr.
+  var PAGE_URL = /^https?:$/.test(location.protocol) ? location.origin + location.pathname : 'https://emmadynamics.com/';
   var screen = document.getElementById('qr-start');
   if (!screen || location.hash !== '#qr') return;
   document.getElementById('qr-url').textContent = PAGE_URL.replace('https://', '');
