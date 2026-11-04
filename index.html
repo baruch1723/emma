@@ -256,10 +256,9 @@ body { margin: 0; }
   <div class="wrap">
     <a href="#top" aria-label="EMMA, back to top"><img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177"></a>
     <nav aria-label="Sections">
-      <a href="#watch">Watch</a>
-      <a href="#pumpunya">Pumpunya</a>
       <a href="#events">Other events</a>
       <a href="#how">How it works</a>
+      <a href="#pumpunya">Peru case study</a>
       <a href="#checks">Lab checks</a>
     </nav>
   </div>
@@ -276,52 +275,67 @@ body { margin: 0; }
         <div class="ramp" aria-hidden="true"></div>
         <p class="lead">EMMA cuts a building into thousands of pieces joined by springs, shakes it, and follows every piece from the first crack to the rubble on the ground, with the people inside.</p>
         <div class="actions">
-          <a class="btn primary" href="#pumpunya">See the Pumpunya case</a>
-          <a class="btn ghost" href="#how">How it works</a>
+          <a class="btn primary" href="#how">How it works</a>
+          <a class="btn ghost" href="#pumpunya">Peru case study</a>
         </div>
       </div>
       <figure class="pic" style="margin:0">
-        <div class="compare" id="compare" style="--cut: 50%">
-          <img src="assets/street-before.jpg" alt="Simulated Pumpunya street before the earthquake: three two-storey houses, every person shown in green" width="960" height="540">
-          <img class="after" src="assets/street-after.jpg" alt="The same street after 12 seconds of shaking: the adobe house on the left has come down, the two brick houses stand" width="960" height="540">
-          <div class="divider" aria-hidden="true"></div>
-          <span class="tag l">BEFORE</span>
-          <span class="tag r">AFTER 12 s · 0.3 g</span>
-          <input type="range" id="compare-range" min="0" max="100" value="50" aria-label="Drag to compare the street before and after the earthquake">
-        </div>
-        <figcaption>Pumpunya street in EMMA's transparent view. Drag across the picture to compare before and after. People are coloured by injury.</figcaption>
+        <video class="video autoplay" src="assets/collapse.mp4" poster="assets/poster-collapse.jpg" muted loop playsinline preload="metadata" controls aria-label="EMMA review screen: a four-storey concrete frame collapsing in an earthquake, with the list of people inside updating"></video>
+        <figcaption>A four-storey concrete frame at 0.72 g in EMMA's review screen. On the right, everyone inside, graded as the floors come down: safe, injured, trapped or killed, with the cause.</figcaption>
       </figure>
     </div>
   </section>
 
   <div class="wrap">
-    <div class="run" aria-label="The Pumpunya run in numbers">
-      <div><b>8,191</b><span>pieces in the street</span></div>
-      <div><b>351,872</b><span>spring sets joining them</span></div>
-      <div><b>0.01 ms</b><span>time step</span></div>
-      <div><b>15</b><span>people followed, room by room</span></div>
-      <div><b>3 h 40 min</b><span>to solve on one computer</span></div>
+    <div class="run" aria-label="The four-storey frame run in numbers">
+      <div><b>3,247</b><span>pieces in the building</span></div>
+      <div><b>165,920</b><span>spring sets joining them</span></div>
+      <div><b>0.011 ms</b><span>time step</span></div>
+      <div><b>16</b><span>people followed, room by room</span></div>
+      <div><b>1 h 32 min</b><span>to solve on one computer</span></div>
     </div>
   </div>
 
-  <section class="band" id="watch" style="border-top:0">
+  <section class="band" id="events" style="border-top:0">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Watch EMMA</span>
-        <h2>A four-storey frame comes down, and every person is accounted for</h2>
+        <span class="eyebrow">The same engine</span>
+        <h2>Other buildings, other events</h2>
+        <p class="lead">The same solver takes several buildings at once, and blasts as well as earthquakes.</p>
       </div>
-      <div class="watch">
-        <video class="video autoplay" src="assets/collapse.mp4" poster="assets/poster-collapse.jpg" muted loop playsinline preload="metadata" controls aria-label="EMMA review screen: a four-storey concrete frame collapsing in an earthquake, with the list of people inside updating"></video>
-        <div class="side">
-          <p>The review screen after a run: the building in the transparent view, and the list of everyone inside. Each person is graded as the floors come down, with where they were and what happened to them.</p>
-          <ul>
-            <li><b>Safe</b>&nbsp;· no injury</li>
-            <li><b>Injured</b>&nbsp;· light, serious or critical</li>
-            <li><b>Trapped</b>&nbsp;· alive in a void under the rubble</li>
-            <li><b>Fatal</b>&nbsp;· with the cause, such as "crushed" or "buried"</li>
-          </ul>
-        </div>
+      <div class="events">
+        <article class="event">
+          <video class="video autoplay" src="assets/site.mp4" poster="assets/poster-site.jpg" muted loop playsinline preload="none" aria-label="Three buildings on one site shaken together; people inside coloured by injury"></video>
+          <h3>Three buildings on one site, 38 people</h3>
+          <p>Two four-storey concrete frames and a three-storey one, side by side, shaken by an M7 earthquake set to 1.0 g. Neighbours sway into each other and fall separately, and each person is followed to where they end up.</p>
+          <p class="mono">3 buildings · 1,374 pieces · 38 people</p>
+        </article>
+        <article class="event">
+          <video class="video autoplay" src="assets/blast.mp4" poster="assets/poster-blast.jpg" muted loop playsinline preload="none" aria-label="Blast beside a concrete frame: the crater, facade torn away, people graded by what hit them"></video>
+          <h3>Blast beside a building</h3>
+          <p>The blast load is worked out for every piece of the facade. The crater is dug into the ground, panels are torn off and thrown, floors that lose their supports fall, and each person is graded by what hit them.</p>
+          <p class="mono">crater 9.8 m across, 1.6 m deep</p>
+        </article>
       </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From a floor plan to the rubble, in four steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><h3>Build</h3><p>Describe the building by storeys, bays, walls and materials, or import a model. Every wall, floor, column and roof is cut into pieces.</p></div>
+        <div class="step"><span class="n">02</span><h3>Shake</h3><p>Choose a recorded earthquake, a synthetic one shaped for the site, or a blast. Place people in the rooms.</p></div>
+        <div class="step"><span class="n">03</span><h3>Solve</h3><p>Touching pieces are joined by springs that crack, crush and slide (the applied element method). Pieces that break free fall, hit and pile up.</p></div>
+        <div class="step"><span class="n">04</span><h3>Review</h3><p>Play the run forwards and backwards. See damage by colour, look through the walls, and read why each person was hurt, such as "crushed under the floor" or "trapped in a void".</p></div>
+      </div>
+      <figure class="workflow" style="margin-inline:0">
+        <video class="video" src="assets/workflow.mp4" poster="assets/poster-workflow.jpg" muted controls playsinline preload="none" aria-label="The EMMA workflow: configure the structure, set up the earthquake, edit occupancy, simulate, view the report"></video>
+        <figcaption>The four steps in the application, in about a minute: configure the structure, set up the earthquake, place the people, simulate, and read the report.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -343,6 +357,18 @@ body { margin: 0; }
         <h3 style="font-size:var(--s2)">One street, three ways to build, the same earthquake</h3>
         <p class="measure" style="color:var(--muted)">We rebuilt a Pumpunya street in EMMA: three two-storey houses side by side, five people in each, shaken by the same ground. Each simulated house is shown next to a house of the same kind photographed after the earthquake.</p>
       </div>
+
+      <figure class="pic" style="margin:0 0 1rem; max-width:52rem">
+        <div class="compare" id="compare" style="--cut: 50%">
+          <img src="assets/street-before.jpg" alt="Simulated Pumpunya street before the earthquake: three two-storey houses, every person shown in green" width="960" height="540">
+          <img class="after" src="assets/street-after.jpg" alt="The same street after 12 seconds of shaking: the adobe house on the left has come down, the two brick houses stand" width="960" height="540">
+          <div class="divider" aria-hidden="true"></div>
+          <span class="tag l">BEFORE</span>
+          <span class="tag r">AFTER 12 s · 0.3 g</span>
+          <input type="range" id="compare-range" min="0" max="100" value="50" aria-label="Drag to compare the street before and after the earthquake">
+        </div>
+        <figcaption>Pumpunya street in EMMA's transparent view. Drag across the picture to compare before and after. People are coloured by injury.</figcaption>
+      </figure>
 
       <article class="house">
         <div class="about">
@@ -411,49 +437,6 @@ body { margin: 0; }
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
-
-  <section class="band alt" id="events">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">The same engine</span>
-        <h2>Other buildings, other events</h2>
-        <p class="lead">The houses in Pumpunya and a four-storey concrete frame run on the same solver. So do several buildings at once, and a blast.</p>
-      </div>
-      <div class="events">
-        <article class="event">
-          <video class="video autoplay" src="assets/site.mp4" poster="assets/poster-site.jpg" muted loop playsinline preload="none" aria-label="Three buildings on one site shaken together; people inside coloured by injury"></video>
-          <h3>Three buildings on one site, 38 people</h3>
-          <p>Two four-storey concrete frames and a three-storey one, side by side, shaken by an M7 earthquake set to 1.0 g. Neighbours sway into each other and fall separately, and each person is followed to where they end up.</p>
-          <p class="mono">3 buildings · 1,374 pieces · 38 people</p>
-        </article>
-        <article class="event">
-          <video class="video autoplay" src="assets/blast.mp4" poster="assets/poster-blast.jpg" muted loop playsinline preload="none" aria-label="Blast beside a concrete frame: the crater, facade torn away, people graded by what hit them"></video>
-          <h3>Blast beside a building</h3>
-          <p>The blast load is worked out for every piece of the facade. The crater is dug into the ground, panels are torn off and thrown, floors that lose their supports fall, and each person is graded by what hit them.</p>
-          <p class="mono">crater 9.8 m across, 1.6 m deep</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="how">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">How it works</span>
-        <h2>From a floor plan to the rubble, in four steps</h2>
-      </div>
-      <div class="steps">
-        <div class="step"><span class="n">01</span><h3>Build</h3><p>Describe the building by storeys, bays, walls and materials, or import a model. Every wall, floor, column and roof is cut into pieces.</p></div>
-        <div class="step"><span class="n">02</span><h3>Shake</h3><p>Choose a recorded earthquake, a synthetic one shaped for the site, or a blast. Place people in the rooms.</p></div>
-        <div class="step"><span class="n">03</span><h3>Solve</h3><p>Touching pieces are joined by springs that crack, crush and slide (the applied element method). Pieces that break free fall, hit and pile up.</p></div>
-        <div class="step"><span class="n">04</span><h3>Review</h3><p>Play the run forwards and backwards. See damage by colour, look through the walls, and read why each person was hurt, such as "crushed under the floor" or "trapped in a void".</p></div>
-      </div>
-      <figure class="workflow" style="margin-inline:0">
-        <video class="video" src="assets/workflow.mp4" poster="assets/poster-workflow.jpg" muted controls playsinline preload="none" aria-label="The EMMA workflow: configure the structure, set up the earthquake, edit occupancy, simulate, view the report"></video>
-        <figcaption>The four steps in the application, in about a minute: configure the structure, set up the earthquake, place the people, simulate, and read the report.</figcaption>
-      </figure>
     </div>
   </section>
 
