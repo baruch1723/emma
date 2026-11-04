@@ -67,7 +67,8 @@ p { margin: 0; }
 /* Header */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; }
-.top .lockup { height: 30px; width: auto; }
+.top .lockup { height: 46px; width: auto; }
+@media (max-width: 480px) { .top .lockup { height: 36px; } }
 .top nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
 .top nav a { color: var(--muted); text-decoration: none; font-size: var(--s-1); letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--display); font-stretch: 112%; }
 .top nav a:hover { color: var(--fg); }
@@ -208,7 +209,7 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 
 <header class="top">
   <div class="wrap">
-    <a href="#top" aria-label="EMMA, back to top"><img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="220"></a>
+    <a href="#top" aria-label="EMMA, back to top"><img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177"></a>
     <nav aria-label="Sections">
       <a href="#watch">Watch</a>
       <a href="#pumpunya">Pumpunya</a>
@@ -450,7 +451,7 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 <footer>
   <div class="wrap">
     <div class="brand">
-      <img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="220" loading="lazy">
+      <img class="lockup" src="assets/emma-lockup-horizontal-dark.png" alt="EMMA - Environmental Modeling &amp; Mechanics Analysis" width="1200" height="177" loading="lazy">
       <img class="powered" src="assets/powered_by_insert_tech.png" alt="Powered by Insert Tech" width="440" height="29" loading="lazy">
     </div>
     <p>Photos of Pumpunya: CISMID-UNI, <a href="https://www.cismid.uni.edu.pe/wp-content/uploads/2026/08/Informe_SismoChupaca_20260718_v2.pdf">Informe Sismo Chupaca, 18 July 2026</a>. Earthquake figures: IGP and CISMID-UNI. All simulation pictures are from EMMA runs.</p>
