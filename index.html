@@ -1,5 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b111c">
+<meta property="og:title" content="EMMA - Environmental Modeling &amp; Mechanics Analysis">
+<meta property="og:description" content="See how a building fails, and who gets hurt, before the earthquake comes.">
+<meta property="og:image" content="https://baruch1723.github.io/emma/assets/street-after.jpg">
+<link rel="icon" type="image/png" href="assets/emma-icon.png">
 <title>EMMA</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="EMMA - Environmental Modeling & Mechanics Analysis. See how a building fails, and who gets hurt, before the earthquake comes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -222,7 +231,14 @@ footer .brand img.lockup { height: 26px; width: auto; }
 footer .brand img.powered { height: 13px; width: auto; }
 footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 </style>
-
+<style>
+/* What the Claude page host used to add: margins, safe areas, hidden */
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
 <div class="qr-start" id="qr-start" hidden role="dialog" aria-modal="true" aria-label="Scan to open this page on your phone">
   <div class="qr-inner">
     <div class="qr-code" id="qr-code" aria-hidden="true"></div>
@@ -493,7 +509,7 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
 <script>
 (function () {
   // The page's public link. The QR screen shows only when the page is opened with #qr.
-  var PAGE_URL = 'https://claude.ai/artifact/Rj2ZCy9JSF82YAn7zs5NVT';
+  var PAGE_URL = 'https://baruch1723.github.io/emma/';
   var screen = document.getElementById('qr-start');
   if (!screen || location.hash !== '#qr') return;
   document.getElementById('qr-url').textContent = PAGE_URL.replace('https://', '');
@@ -533,3 +549,6 @@ footer p { font-size: var(--s-1); color: var(--faint); max-width: 34rem; }
   vids.forEach(function (v) { io.observe(v); });
 })();
 </script>
+
+</body>
+</html>

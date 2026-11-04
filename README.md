@@ -1,9 +1,12 @@
 # EMMA landing page
 
-Landing page for the EMMA presentation (Environmental Modeling & Mechanics Analysis).
+Landing page for EMMA - Environmental Modeling & Mechanics Analysis.
 
-- `index.html` - the page (no build step; open it in a browser)
-- `assets/` - logos from StructureSimulation/Assets/Art/Icons, EMMA transparent-view renders of the
-  demo runs, and CISMID-UNI photos of Pumpunya (credit CISMID-UNI when shown)
+Live at **https://baruch1723.github.io/emma/** (GitHub Pages, from `main`).
+For the projector, open **https://baruch1723.github.io/emma/#qr** - a full-screen QR code that opens the page on phones.
 
-Published (private) at https://claude.ai/artifact/Rj2ZCy9JSF82YAn7zs5NVT
+- `index.html` - the whole page; no build step
+- `assets/` - EMMA logos, renders and preview videos from the EMMA application, and photos of
+  Pumpunya from the CISMID-UNI report on the Chupaca earthquake of 18 July 2026 (credit CISMID-UNI)
+
+The earlier version published on claude.ai is kept on the branch `artifact-version` (tag `v1-claude-artifact`).
